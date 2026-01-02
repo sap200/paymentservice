@@ -9,13 +9,10 @@ public class CorsFilter implements WebMvcConfigurer {
 
     @Override
     public void addCorsMappings(CorsRegistry registry) {
-        registry.addMapping("/**")  // apply to all endpoints
-                .allowedOrigins(
-                        "https://rapydmnee.netlify.app/" // Replace with your Netlify URL
-                )
-                .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS") // allow standard methods
-                .allowedHeaders("*")   // allow all headers
-                .allowCredentials(true) // allow cookies/auth
-                .maxAge(3600);          // cache preflight response for 1 hour
+        registry.addMapping("/**")
+                .allowedOriginPatterns("*")
+                .allowedMethods("*")
+                .allowedHeaders("*")
+                .allowCredentials(true);
     }
 }
